@@ -12,6 +12,7 @@ def build():
     """
     do('[ -d venv ] || virtualenv venv --no-site-packages --python=python3')
     do('venv/bin/pip install --upgrade -r requirements.txt')
+    do('venv/bin/python3 -c "from models import db; db.create_all()"')
 
 
 def do(*args):
