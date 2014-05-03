@@ -1,4 +1,4 @@
-prom_test
+Test Task 4 Prom.ua
 =========
 
-Test
+Books manager - flask app.
