@@ -42,3 +42,6 @@ docs/_build/
 
 # Virtual env
 venv
+
+# Project
+database.sqlite3
