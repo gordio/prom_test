@@ -1,11 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Index Document</title>
-</head>
-<body>
-	<h1>Hello Flask and Jinja.</h1>
+{% extends "base.html" %}
+
+
+{% block title %}Index Page{% endblock title %}
+
+{% block content %}
+	<h1>Hello Flask.</h1>
 	<p>Ok, dev-server work.</p>
-</body>
-</html>
+{% endblock %}
