@@ -5,6 +5,15 @@ from fabric.contrib.console import confirm
 from fabric.colors import green, red
 
 
+
+@task
+def run():
+    """
+    Run development server
+    """
+    do('venv/bin/python3 run.py')
+
+
 @task
 def build():
     """
