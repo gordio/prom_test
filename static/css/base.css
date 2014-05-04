@@ -1,0 +1,11 @@
+html, body {
+	font-weight: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+form .errorlist {
+    margin: 0;
+    margin-bottom: 0.125em;
+    padding: 0 1.5em;
+    color: #A00;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}

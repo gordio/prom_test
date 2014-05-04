@@ -1,0 +1,64 @@
+.messages {
+    padding: 1rem;
+    padding-bottom: 0;
+}
+
+.message {
+    display: block;
+    padding: 0.75em;
+    color: #444;
+    background: #EEE;
+    border: 1px solid #AAA;
+    text-shadow: 0 1px 0 #EEE;
+    outline: 0;
+
+    -webkit-border-radius: 0.25rem;
+    border-radius: 0.25rem;
+
+    -webkit-box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.message:before {
+    font-weight: bold;
+    padding-right: 0.5em;
+}
+
+.message + .message {
+    margin-top: 0.5em;
+}
+
+.message.info {
+    background: #E6F8FF;
+    border-color: #8BB4C7;
+}
+.message.info:before {
+    content: "INFO";
+}
+
+.message.success {
+    background: #EFF8E4;
+    border-color: #9AB27B;
+}
+.message.success:before {
+    content: "SUCCESS";
+}
+
+.message.warning {
+    background: #FFFCE6;
+    border-color: #BFAC26;
+}
+.message.warning:before {
+    content: "WARNING";
+}
+
+.message.error {
+    background: #FAE6E6;
+    border-color: #C77E77;
+}
+.message.error:before {
+    content: "ERROR";
+}
