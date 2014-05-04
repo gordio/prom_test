@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block title %}Books - Add{% endblock %}
+
+{% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+	<form action="." method="POST">
+		<legend>Add Book</legend>
+		{% from "_form_helper.html" import render_field %}
+		{% for field in form %}
+			{{ render_field(field) }}
+		{% endfor %}
+		<a href="{{ url_for('author_add') }}">Add author</a>
+		<div class="buttons">
+			<input type="submit">
+		</div>
+	</form>
+	{{ book }}	
+{% endblock %}
