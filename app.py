@@ -28,14 +28,20 @@ def index():
 
 
 # Books
-@app.route('/book/view/<int:book_id>', methods=['GET','POST'])
-def book_view(book_id):
+@app.route('/books/view/all', methods=['GET','POST'])
+def books_view_all():
+    books = Book.query.all()
+    return render_template('books/view.html', **locals())
+
+
+@app.route('/books/view/<int:book_id>', methods=['GET','POST'])
+def books_view(book_id):
     book = Book.query.get_or_404(book_id)
     return render_template('books/view.html', **locals())
 
 
-@app.route('/book/add/', methods=['GET', 'POST'])
-def book_add():
+@app.route('/books/add/', methods=['GET', 'POST'])
+def books_add():
     form = BookForm(request.form)
     form.authors.choices = [(a.id, a.title) for a in Author.query.all()]
 
@@ -48,20 +54,50 @@ def book_add():
 
 
 # Authors
-@app.route('/author/view/<int:author_id>', methods=['GET'])
-def author_view(author_id):
-    author = Author.query.get_or_404(author_id)
-    return render_template('authors/view.html', **locals())
+@app.route('/authors/view/all', methods=['GET'])
+@app.route('/authors/', methods=['GET'])
+def authors_view_all():
+    authors = Author.query.all()
+    return render_template('authors/view_all.html', **locals())
 
 
-@app.route('/author/add/', methods=['GET', 'POST'])
-def author_add():
+@app.route('/authors/add/', methods=['GET', 'POST'])
+def authors_add():
     form = AuthorForm(request.form)
 
     if request.method == "POST" and form.validate():
         new_author = Author(title=form.data.get('title'))
         db.session.add(new_author)
         db.session.commit()
-        return redirect(url_for('author_view', author_id=new_author.id))
+        flash("Author added")
+        return redirect(url_for('author_view_all'))
 
     return render_template('authors/add.html', **locals())
+
+
+@app.route('/authors/edit/<int:author_id>', methods=['GET', 'POST'])
+def authors_edit(author_id):
+    author = Author.query.get_or_404(author_id)
+
+    form = AuthorForm(request.form, obj=author)
+
+    if request.method == "POST" and form.validate():
+        author.title = form.data.get('title')
+        db.session.commit()
+        flash("Author changed")
+        return redirect(url_for('author_view_all'))
+
+    return render_template('authors/edit.html', **locals())
+
+
+@app.route('/authors/delete/<int:author_id>', methods=['GET', 'POST'])
+def authors_delete(author_id):
+    author = Author.query.get_or_404(author_id)
+
+    if request.method == "POST":
+        db.session.delete(author)
+        db.session.commit()
+        flash("Author deleted")
+        return redirect(url_for('author_view_all'))
+
+    return render_template('authors/delete.html', **locals())
