@@ -12,6 +12,8 @@ DEV_HOSTS = ('Sun', )
 LOGIN = 'demo'
 PASSWORD = 'demo'
 
+SECRET_KEY = "random.get()"
+
 # Auto switch to debug?
 DEBUG = gethostname() in DEV_HOSTS
 
