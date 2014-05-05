@@ -31,7 +31,7 @@ def index():
 @app.route('/books/view/all', methods=['GET','POST'])
 def books_view_all():
     books = Book.query.all()
-    return render_template('books/view.html', **locals())
+    return render_template('books/view_all.html', **locals())
 
 
 @app.route('/books/view/<int:book_id>', methods=['GET','POST'])
