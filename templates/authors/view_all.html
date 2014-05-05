@@ -48,8 +48,8 @@
 		<th>ID:<th>Title:<th>Actions:
 	{% for author in authors %}
 		<tr><td>{{ author.id }}<td>{{ author.name }}<td class="actions">
-		<a class="icon-edit" title="Edit author" href="{{ url_for('authors_edit', author_id=a.id) }}"></a>
-		<a class="icon-delete" title="Delete author" href="{{ url_for('authors_delete', author_id=a.id) }}"></a>
+		<a class="icon-edit" title="Edit author" href="{{ url_for('authors_edit', author_id=author.id) }}"></a>
+		<a class="icon-delete" title="Delete author" href="{{ url_for('authors_delete', author_id=author.id) }}"></a>
 	{% endfor %}
 	</table>
 {% endblock content %}
