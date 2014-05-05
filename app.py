@@ -28,16 +28,11 @@ def index():
 
 
 # Books
-@app.route('/books/view/all', methods=['GET','POST'])
+@app.route('/books/view/all', methods=['GET'])
+@app.route('/books/', methods=['GET'])
 def books_view_all():
     books = Book.query.all()
     return render_template('books/view_all.html', **locals())
-
-
-@app.route('/books/view/<int:book_id>', methods=['GET','POST'])
-def books_view(book_id):
-    book = Book.query.get_or_404(book_id)
-    return render_template('books/view.html', **locals())
 
 
 @app.route('/books/add/', methods=['GET', 'POST'])
@@ -55,7 +50,7 @@ def books_add():
     return render_template('books/add.html', **locals())
 
 
-@app.route('/books/edit/<int:book_id>', methods=['GET','POST'])
+@app.route('/books/edit/<int:book_id>', methods=['GET', 'POST'])
 def books_edit(book_id):
     book = Book.query.get_or_404(book_id)
     form = BookForm(request.form, obj=book)
@@ -69,7 +64,7 @@ def books_edit(book_id):
     return render_template('books/edit.html', **locals())
 
 
-@app.route('/books/delete/<int:book_id>', methods=['GET','POST'])
+@app.route('/books/delete/<int:book_id>', methods=['GET', 'POST'])
 def books_delete(book_id):
     book = Book.query.get_or_404(book_id)
 
