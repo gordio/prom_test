@@ -23,8 +23,7 @@ if not app.config['DEBUG']:
 # VIEWS
 @app.route('/')
 def index():
-    form = BookForm()
-    return render_template('index.html', **locals())
+    return redirect(url_for('books_view_all'))
 
 
 # Books
