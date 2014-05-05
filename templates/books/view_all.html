@@ -1,38 +1,38 @@
 {% extends "base.html" %}
 
 
-{% block title %}Books{% endblock title %}
+{% block title %}Books List{% endblock title %}
 
 {% block head %}
 	<style>
-		.author_add {
+		.books-add_book {
 			float: right;
 		}
-		.authors_list .actions {
+		.books-list .actions {
 			text-align: right;
 		}
-		.authors_list {
+		.books-list {
 			border: 1px solid #AAA;
 			width: 100%;
 		}
-		.authors_list td,
-		.authors_list th {
+		.books-list td,
+		.books-list th {
 			padding: 0.125em 0.25em;
 			border-right: 1px solid #AAA;
 		}
-		.authors_list th {
+		.books-list th {
 			background: rgba(0, 0, 0, 0.2);
 		}
-		.authors_list tr:nth-child(odd) {
+		.books-list tr:nth-child(odd) {
 			background: rgba(0, 0, 0, 0.1);
 		}
-		.authors_list .actions a {
+		.books-list .actions a {
 			text-decoration: none;
 		}
-		.authors_list .actions .icon-delete:hover {
+		.books-list .actions .icon-delete:hover {
 			color: #A40000;
 		}
-		.authors_list .actions .icon-edit:hover {
+		.books-list .actions .icon-edit:hover {
 			color: #A08000;
 		}
 		.icon-add:hover {
@@ -43,8 +43,8 @@
 
 {% block content %}
 	<h2>Books list</h2>
-	<a class="books_add icon-add" href="{{ url_for('books_add') }}">Add</a>
-	<table class="books_list">
+	<a class="books-add_book icon-add" href="{{ url_for('books_add') }}">Add</a>
+	<table class="books-list">
 		<th>ID:<th>Title:<th>Authors:<th>Actions:
 	{% for item in books %}
 		<tr>
@@ -53,7 +53,7 @@
 			<td>{% for a in item.authors %}
 				{{ a.title }},
 			{% endfor %}
-			<td class="actions"><a class="icon-edit" title="Edit author" href="{{ url_for('books_edit', author_id=item.id) }}"></a><a class="icon-delete" title="Delete author" href="{{ url_for('books_delete', author_id=item.id) }}"></a>
+			<td class="actions"><a class="icon-edit" title="Edit author" href="{{ url_for('books_edit', book_id=item.id) }}"></a><a class="icon-delete" title="Delete author" href="{{ url_for('books_delete', book_id=item.id) }}"></a>
 	{% endfor %}
 	</table>
 {% endblock content %}
