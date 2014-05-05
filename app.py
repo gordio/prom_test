@@ -53,6 +53,18 @@ def books_add():
     return render_template('books/add.html', **locals())
 
 
+@app.route('/books/edit/<int:book_id>', methods=['GET','POST'])
+def books_edit(book_id):
+    book = Book.query.get_or_404(book_id)
+    return render_template('books/view.html', **locals())
+
+
+@app.route('/books/delete/<int:book_id>', methods=['GET','POST'])
+def books_delete(book_id):
+    book = Book.query.get_or_404(book_id)
+    return render_template('books/view.html', **locals())
+
+
 # Authors
 @app.route('/authors/view/all', methods=['GET'])
 @app.route('/authors/', methods=['GET'])
