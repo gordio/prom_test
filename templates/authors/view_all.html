@@ -5,34 +5,34 @@
 
 {% block head %}
 	<style>
-		.author_add {
+		.authors-add_author {
 			float: right;
 		}
-		.authors_list .actions {
+		.authors-list .actions {
 			text-align: right;
 		}
-		.authors_list {
+		.authors-list {
 			border: 1px solid #AAA;
 			width: 100%;
 		}
-		.authors_list td,
-		.authors_list th {
+		.authors-list td,
+		.authors-list th {
 			padding: 0.125em 0.25em;
 			border-right: 1px solid #AAA;
 		}
-		.authors_list th {
+		.authors-list th {
 			background: rgba(0, 0, 0, 0.2);
 		}
-		.authors_list tr:nth-child(odd) {
+		.authors-list tr:nth-child(odd) {
 			background: rgba(0, 0, 0, 0.1);
 		}
-		.authors_list .actions a {
+		.authors-list .actions a {
 			text-decoration: none;
 		}
-		.authors_list .actions .icon-delete:hover {
+		.authors-list .actions .icon-delete:hover {
 			color: #A40000;
 		}
-		.authors_list .actions .icon-edit:hover {
+		.authors-list .actions .icon-edit:hover {
 			color: #A08000;
 		}
 		.icon-add:hover {
@@ -43,8 +43,8 @@
 
 {% block content %}
 	<h2>Authors list</h2>
-	<a class="authors_add icon-add" href="{{ url_for('authors_add') }}">Add</a>
-	<table class="authors_list">
+	<a class="authors-add_author icon-add" href="{{ url_for('authors_add') }}">Add</a>
+	<table class="authors-list">
 		<th>ID:<th>Title:<th>Actions:
 	{% for author in authors %}
 		<tr><td>{{ author.id }}<td>{{ author.name }}<td class="actions">
