@@ -208,7 +208,8 @@ textarea:valid:focus {
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
-button {
+button,
+.button {
 	margin: 0;
 	padding: 0.35em 0.75em;
 	color: #222;
@@ -229,7 +230,8 @@ button {
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus,
-button:focus {
+button:focus,
+.button:focus {
 	border: 1px solid #888;
 
 	-webkit-box-shadow: 0 0 0.0.35rem rgba(0, 0, 0, 0.25);
@@ -239,7 +241,8 @@ button:focus {
 input[type="submit"]:enabled:active,
 input[type="reset"]:enabled:active,
 input[type="button"]:enabled:active,
-button:enabled:active {
+button:enabled:active,
+.button:enabled:active {
 	background: #DDD;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
 
@@ -251,7 +254,8 @@ button:enabled:active {
 input[type="submit"]:disabled,
 input[type="reset"]:disabled,
 input[type="button"]:disabled,
-button:disabled {
+button:disabled,
+.button:disabled {
 	color: #888;
 	opacity: 0.8;
 }
