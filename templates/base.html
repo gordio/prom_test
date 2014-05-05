@@ -6,22 +6,12 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.min.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/messages.css')}}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='icons-font.css')}}">
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 	{% block head %}
 	{% endblock %}
 </head>
 <body>
-<section class="content page">
-	{% for category, message in get_flashed_messages(with_categories=true) %}
-	<div class="message {{ category }}">
-		<a style="float: right" onclick="this.parentElement.parentElement.removeChild(this.parentElement)" title="Close">X</a>
-		{{ message }}
-	</div>
-	{% endfor %}
-
 	{% block content %}
 	{% endblock %}
-</section>
 </body>
 </html>

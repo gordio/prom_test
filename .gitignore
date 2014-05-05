@@ -44,4 +44,4 @@ docs/_build/
 venv
 
 # Project
-database.sqlite3
+data.sqlite3

@@ -11,7 +11,7 @@ def run():
     """
     Run development server
     """
-    do('venv/bin/python3 run.py')
+    do('venv/bin/python3 app.py')
 
 
 @task
