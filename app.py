@@ -43,12 +43,14 @@ def books_view(book_id):
 @app.route('/books/add/', methods=['GET', 'POST'])
 def books_add():
     form = BookForm(request.form)
-    form.authors.choices = [(a.id, a.title) for a in Author.query.all()]
 
     if request.method == "POST" and form.validate():
-        # Add book
-        pass
-        # return redirect(url_for('book_view', book_id=book.id))
+        new_book = Book(title=form.data.get('title'))
+        new_book.authors = form.data.get('authors')
+        db.session.add(new_book)
+        db.session.commit()
+        flash("Book added")
+        return redirect(url_for('books_view_all'))
 
     return render_template('books/add.html', **locals())
 
@@ -56,13 +58,28 @@ def books_add():
 @app.route('/books/edit/<int:book_id>', methods=['GET','POST'])
 def books_edit(book_id):
     book = Book.query.get_or_404(book_id)
-    return render_template('books/view.html', **locals())
+    form = BookForm(request.form, obj=book)
+
+    if request.method == "POST" and form.validate():
+        book.title = form.data.get('title')
+        db.session.commit()
+        flash("Book changed")
+        return redirect(url_for('books_view_all'))
+
+    return render_template('books/edit.html', **locals())
 
 
 @app.route('/books/delete/<int:book_id>', methods=['GET','POST'])
 def books_delete(book_id):
     book = Book.query.get_or_404(book_id)
-    return render_template('books/view.html', **locals())
+
+    if request.method == "POST":
+        db.session.delete(book)
+        db.session.commit()
+        flash("Book deleted")
+        return redirect(url_for('books_view_all'))
+
+    return render_template('books/delete.html', **locals())
 
 
 # Authors
