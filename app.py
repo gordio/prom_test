@@ -82,7 +82,7 @@ def authors_add():
         db.session.add(new_author)
         db.session.commit()
         flash("Author added")
-        return redirect(url_for('author_view_all'))
+        return redirect(url_for('authors_view_all'))
 
     return render_template('authors/add.html', **locals())
 
@@ -97,7 +97,7 @@ def authors_edit(author_id):
         author.name = form.data.get('name')
         db.session.commit()
         flash("Author changed")
-        return redirect(url_for('author_view_all'))
+        return redirect(url_for('authors_view_all'))
 
     return render_template('authors/edit.html', **locals())
 
@@ -110,6 +110,6 @@ def authors_delete(author_id):
         db.session.delete(author)
         db.session.commit()
         flash("Author deleted")
-        return redirect(url_for('author_view_all'))
+        return redirect(url_for('authors_view_all'))
 
     return render_template('authors/delete.html', **locals())
