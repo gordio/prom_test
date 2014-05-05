@@ -13,6 +13,7 @@
 </head>
 <body>
 <section class="content page">
+	<a href="/">Home</a>
 	{% for category, message in get_flashed_messages(with_categories=true) %}
 	<div class="message {{ category }}">
 		<a style="float: right" onclick="this.parentElement.parentElement.removeChild(this.parentElement)" title="Close">X</a>
