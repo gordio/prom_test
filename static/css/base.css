@@ -1,5 +1,6 @@
 html, body {
 	font-weight: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	background: #DFDFDF;
 }
 
 form .errorlist {
@@ -8,4 +9,16 @@ form .errorlist {
     padding: 0 1.5em;
     color: #A00;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.page {
+	margin: 1em auto;
+	padding: 1em;
+	width: 80%;
+	min-width: 18rem;
+	max-width: 50rem;
+	border: 1px solid #888;
+	background: #F8F8F8;
+	border-radius: 0.25rem;
+	box-shadow: 0 0 0.125em 0.125em rgba(0, 0, 0, 0.125);
 }
