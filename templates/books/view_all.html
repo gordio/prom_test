@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+{% block title %}Books{% endblock title %}
+
+{% block head %}
+	<style>
+		.author_add {
+			float: right;
+		}
+		.authors_list .actions {
+			text-align: right;
+		}
+		.authors_list {
+			border: 1px solid #AAA;
+			width: 100%;
+		}
+		.authors_list td,
+		.authors_list th {
+			padding: 0.125em 0.25em;
+			border-right: 1px solid #AAA;
+		}
+		.authors_list th {
+			background: rgba(0, 0, 0, 0.2);
+		}
+		.authors_list tr:nth-child(odd) {
+			background: rgba(0, 0, 0, 0.1);
+		}
+		.authors_list .actions a {
+			text-decoration: none;
+		}
+		.authors_list .actions .icon-delete:hover {
+			color: #A40000;
+		}
+		.authors_list .actions .icon-edit:hover {
+			color: #A08000;
+		}
+		.icon-add:hover {
+			color: #00A400;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+	<h2>Books list</h2>
+	<a class="books_add icon-add" href="{{ url_for('books_add') }}">Add</a>
+	<table class="books_list">
+		<th>ID:<th>Title:<th>Authors:<th>Actions:
+	{% for item in books %}
+		<tr>
+			<td>{{ item.id }}
+			<td>{{ item.title }}
+			<td>{% for a in item.authors %}
+				{{ a.title }},
+			{% endfor %}
+			<td class="actions"><a class="icon-edit" title="Edit author" href="{{ url_for('books_edit', author_id=item.id) }}"></a><a class="icon-delete" title="Delete author" href="{{ url_for('books_delete', author_id=item.id) }}"></a>
+	{% endfor %}
+	</table>
+{% endblock content %}

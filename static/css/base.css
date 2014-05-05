@@ -3,6 +3,18 @@ html, body {
 	background: #DFDFDF;
 }
 
+a {
+	color: #094b94;
+	text-decoration: none;
+}
+a:hover, a:active {
+	text-decoration: underline;
+}
+
+h2 {
+	margin-top: 0;
+}
+
 form .errorlist {
     margin: 0;
     margin-bottom: 0.125em;
