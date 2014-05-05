@@ -46,14 +46,14 @@
 	<a class="books-add_book icon-add" href="{{ url_for('books_add') }}">Add</a>
 	<table class="books-list">
 		<th>ID:<th>Title:<th>Authors:<th>Actions:
-	{% for item in books %}
+	{% for book in books %}
 		<tr>
-			<td>{{ item.id }}
-			<td>{{ item.title }}
-			<td>{% for a in item.authors %}
-				{{ a.title }},
+			<td>{{ book.id }}
+			<td>{{ book.title }}
+			<td>{% for author in book.authors %}
+				{{ author.name }}{% if loop.last %}.{% else %},{% endif %}
 			{% endfor %}
-			<td class="actions"><a class="icon-edit" title="Edit author" href="{{ url_for('books_edit', book_id=item.id) }}"></a><a class="icon-delete" title="Delete author" href="{{ url_for('books_delete', book_id=item.id) }}"></a>
+			<td class="actions"><a class="icon-edit" title="Edit author" href="{{ url_for('books_edit', book_id=book.id) }}"></a><a class="icon-delete" title="Delete author" href="{{ url_for('books_delete', book_id=book.id) }}"></a>
 	{% endfor %}
 	</table>
 {% endblock content %}
