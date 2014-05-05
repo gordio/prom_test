@@ -45,7 +45,7 @@
 	<h2>Authors list</h2>
 	<a class="authors-add_author icon-add" href="{{ url_for('authors_add') }}">Add</a>
 	<table class="authors-list">
-		<th>ID:<th>Title:<th>Actions:
+		<th>ID:<th>Name:<th>Actions:
 	{% for author in authors %}
 		<tr><td>{{ author.id }}<td>{{ author.name }}<td class="actions">
 		<a class="icon-edit" title="Edit author" href="{{ url_for('authors_edit', author_id=author.id) }}"></a>
