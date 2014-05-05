@@ -39,13 +39,25 @@
 			color: #00A400;
 		}
 	</style>
+
+	<script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.table_filter.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			$('.f_search').table_filter({'table': '.books-list'});
+		});
+	</script>
 {% endblock %}
 
 {% block content %}
 	<h2>Books list</h2>
 	<a class="books-add_book icon-add" href="{{ url_for('books_add') }}">Add</a>
+	<input type="text" class="f_search" placeholder="Filter (search)">
 	<table class="books-list">
-		<th>ID:<th>Title:<th>Authors:<th>Actions:
+		<th>#
+		<th>Title:
+		<th>Authors:
+		<th>Actions:
 	{% for book in books %}
 		<tr>
 			<td>{{ book.id }}
