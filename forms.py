@@ -21,7 +21,7 @@ class BookForm(Form):
 
 
 class AuthorForm(Form):
-    title = TextField('Title', [
+    name = TextField('Name', [
         validators.Required(),
         validators.Length(min=4, max=200)
     ])

@@ -34,10 +34,10 @@ class Author(db.Model):
     __tablename__ = "authors"
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(200), unique=True)
+    name = db.Column(db.String(200), unique=True)
 
-    def __init__(self, title):
-        self.title = title
+    def __init__(self, name):
+        self.name = name
 
     def __str__(self):
-        return self.title
+        return self.name

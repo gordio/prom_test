@@ -66,7 +66,7 @@ def authors_add():
     form = AuthorForm(request.form)
 
     if request.method == "POST" and form.validate():
-        new_author = Author(title=form.data.get('title'))
+        new_author = Author(name=form.data.get('name'))
         db.session.add(new_author)
         db.session.commit()
         flash("Author added")
@@ -82,7 +82,7 @@ def authors_edit(author_id):
     form = AuthorForm(request.form, obj=author)
 
     if request.method == "POST" and form.validate():
-        author.title = form.data.get('title')
+        author.name = form.data.get('name')
         db.session.commit()
         flash("Author changed")
         return redirect(url_for('author_view_all'))
